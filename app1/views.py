@@ -106,6 +106,10 @@ def req(request):
     sleepingMean = sleepingMean/count
     weightMean = weightMean/count
 
+    
+
+
+
     for entry in all_entries:
         eating=entry.eating-eatingMean
         drinking = entry.drinking-drinkingMean
@@ -180,6 +184,14 @@ def req(request):
 
 
     data.save()
+
+    eating = eating-eatingMean
+    drinking = drinking-drinkingMean
+    toileting = toileting-toiletingMean
+    showering = showering-showeringMean
+    leaving = leaving-leavingMean
+    sleeping = sleeping-sleepingMean
+    weight =weight -weightMean
 
     dataToBeSend['eating'] = (((eating - eatingMin)/(eatingMax - eatingMin))*(4)) -2
     dataToBeSend['drinking'] = (((drinking - drinkingMin)/(drinkingMax - drinkingMin))*(4)) -2
